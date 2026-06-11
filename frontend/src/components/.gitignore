@@ -1,0 +1,11 @@
+node_modules/
+uploads/
+.env
+
+frontend/node_modules/
+backend/node_modules/
+
+dist/
+build/
+
+package-lock.json
