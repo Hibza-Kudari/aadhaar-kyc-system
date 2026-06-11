@@ -1,36 +1,72 @@
 # Aadhaar OCR & Face Verification System
 
+## Overview
+
 A full-stack KYC verification system that extracts Aadhaar details using OCR and verifies user identity through facial recognition.
+
+The application allows users to:
+
+* Upload an Aadhaar card image
+* Extract Aadhaar Number, DOB, and Gender using OCR
+* Upload a selfie image
+* Compare the Aadhaar photo with the uploaded selfie
+* Return verification results with a similarity score
+
+---
 
 ## Features
 
-- Upload Aadhaar card image
-- Upload selfie image
-- Extract Aadhaar Number, DOB, and Gender using OCR
-- Detect faces from Aadhaar card and selfie
-- Compare facial embeddings using Face-api.js
-- Calculate similarity score
-- Verify KYC automatically
+* OCR-based Aadhaar data extraction
+* Face detection using Face-api.js
+* Face similarity matching
+* Aadhaar Number extraction
+* DOB extraction
+* Gender extraction
+* Real-time KYC verification results
+* Full-stack React + Node.js application
+
+---
 
 ## Tech Stack
 
 ### Frontend
-- React.js
-- Axios
-- CSS
+
+* React.js
+* Axios
 
 ### Backend
-- Node.js
-- Express.js
-- Multer
-- Tesseract.js
-- Sharp
-- Face-api.js
-- TensorFlow.js
+
+* Node.js
+* Express.js
+* Multer
+
+### AI / ML Libraries
+
+* Tesseract.js
+* Face-api.js
+* TensorFlow.js
+
+### Image Processing
+
+* Sharp
+
+---
+
+## Application Interface
+
+<img src="./screenshots/upload.png" width="800">
+
+---
+
+## Verification Result
+
+<img src="./screenshots/verif.png" width="800">
+
+---
 
 ## Project Structure
 
-```
+```text
 aadhaar-kyc-system
 │
 ├── backend
@@ -44,12 +80,23 @@ aadhaar-kyc-system
 │   ├── src
 │   └── public
 │
+├── screenshots
+│   ├── upload.png
+│   └── verif.png
+│
 └── README.md
 ```
 
 ## Installation
 
-### Backend
+### Clone Repository
+
+```bash
+git clone https://github.com/Hibza-Kudari/aadhaar-kyc-system.git
+cd aadhaar-kyc-system
+```
+
+### Backend Setup
 
 ```bash
 cd backend
@@ -57,7 +104,7 @@ npm install
 node server.js
 ```
 
-### Frontend
+### Frontend Setup
 
 ```bash
 cd frontend
@@ -65,63 +112,35 @@ npm install
 npm run dev
 ```
 
-## Usage
+---
 
-1. Upload Aadhaar card image
-2. Upload selfie image
-3. Click Verify KYC
-4. View extracted Aadhaar details and face verification result
+## Output Example
 
-## Sample Output
+```json
+{
+  "aadhaarNumber": "XXXX YYYY ZZZZ",
+  "dob": "DD/MM/YYYY",
+  "gender": "Female",
+  "faceMatch": true,
+  "distance": "0.6477"
+}
+```
 
-- Aadhaar Number
-- Date of Birth
-- Gender
-- Face Match Status
-- Similarity Score
+---
 
 ## Future Improvements
 
-- Aadhaar QR code extraction
-- MongoDB integration
-- PDF verification reports
-- Admin dashboard
-- Face match percentage visualization
+* Aadhaar photo cropping before matching
+* Confidence score visualization
+* Better UI with Tailwind CSS
+* Database integration
+* Cloud deployment
+* Multi-document KYC support
 
-## System Architecture
-
-```text
-+------------------+
-| React Frontend   |
-| (File Upload UI) |
-+--------+---------+
-         |
-         | HTTP POST
-         v
-+------------------+
-| Express Backend  |
-+--------+---------+
-         |
-         +-------------------+
-         |                   |
-         v                   v
-+---------------+   +----------------+
-| Tesseract OCR |   | Face-api.js    |
-| Extract Data  |   | Face Matching  |
-+-------+-------+   +--------+-------+
-        |                    |
-        v                    v
-+-------------------------------+
-| Aadhaar Details + Face Result |
-+---------------+---------------+
-                |
-                v
-         JSON Response
-                |
-                v
-         React Frontend
-```
+---
 
 ## Author
 
-Hibza Mohammad Ali Kudari
+**Hibza Kudari**
+
+Built as a full-stack AI-powered KYC verification project using OCR and facial recognition technologies.
